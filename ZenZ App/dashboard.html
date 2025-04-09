@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenZ - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Link your updated style.css file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <header>
+         <div class="container">
+             <nav>
+                 <div class="logo">Zen<span>Z</span></div>
+                 <button class="menu-toggle" id="mobile-menu" aria-label="Open navigation menu">
+                     <i class="fas fa-bars"></i>
+                 </button>
+                  <ul class="nav-links" id="nav-links">
+                     <li><a href="#usage-tracker">Sessions</a></li>
+                     <li><a href="#goal-setter">Goals</a></li>
+                     <li><a href="#journal">Journal</a></li>
+                     <li><a href="index.html">Logout (Home)</a></li>
+                  </ul>
+             </nav>
+         </div>
+     </header>
+
+    <main>
+        <section class="dashboard-section">
+            <div class="container">
+                <h2 id="welcome-message">Welcome!</h2>
+
+                <!-- Quotes Section -->
+                <div id="quote-display-area" title="Click to load a new quote">
+                     <p id="quote-text" style="font-size: 1.5rem; line-height: 1.7; color: var(--text); font-style: italic; margin-bottom: 0.8rem;">Quote loading...</p>
+                     <span id="quote-author" style="display: block; color: var(--primary); font-weight: 500; font-size: 1.1rem;"></span>
+                </div>
+                 <!-- End quote-display-area -->
+
+                 <!-- Pomodoro Timer Removed -->
+
+                <div class="dashboard-grid">
+
+                    <!-- Usage Tracker Card - Session Logging -->
+                    <div id="usage-tracker" class="dashboard-card">
+                        <h3><i class="fas fa-stopwatch fa-fw"></i> Track Session</h3>
+                        <p style="text-align: center; font-size: 0.9rem; opacity: 0.8; margin-bottom: 1rem;">Manually track focused work or mindful usage periods.</p>
+                        <div id="session-timer-display">00:00:00</div>
+                        <div class="session-controls">
+                            <button id="start-session-btn" class="session-button start-session-btn">Start Session</button>
+                            <button id="stop-session-btn" class="session-button stop-session-btn" style="display: none;">Stop Session</button>
+                        </div>
+                        <h4 style="color: var(--secondary); font-weight: 500; font-size: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">Logged Sessions (This Visit):</h4>
+                        <div id="session-list-container">
+                            <ul id="session-list">
+                                <!-- Sessions will be added here -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Goal Setter Card -->
+                    <div id="goal-setter" class="dashboard-card">
+                        <h3><i class="fas fa-bullseye fa-fw"></i> Goal Setter</h3>
+                        <div class="goal-input-container">
+                            <!-- Updated Placeholder Text -->
+                            <input type="text" id="new-goal-input" placeholder="Add goal...">
+                            <button id="add-goal-button" title="Add Goal"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <ul id="goal-list">
+                            <!-- Goals will be added here by JS -->
+                        </ul>
+                    </div>
+
+                     <!-- Journal Card (Pomodoro Removed) -->
+                     <div id="journal" class="dashboard-card">
+                         <h3><i class="fas fa-book-open fa-fw"></i> Daily Journal</h3>
+                         <!-- Mini Pomodoro Timer Element Removed -->
+                         <textarea id="journal-entry" placeholder="How are you feeling today? Reflect on your digital usage..."></textarea>
+                         <button id="save-journal">Save Entry (Local)</button>
+                     </div>
+                     <!-- End Journal Card -->
+
+                </div> <!-- End dashboard-grid -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+         <!-- Footer content remains the same -->
+         <div class="footer-wave">
+              <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill" style="fill: var(--gradient-bg);"></path>
+              </svg>
+          </div>
+          <div class="container">
+              <div class="footer-content">
+                   <div class="footer-about">
+                     <div class="footer-logo">Zen<span>Z</span></div>
+                     <p>Helping you navigate the digital world with mindfulness and intention. Find your balance with ZenZ.</p>
+                      <div class="social-links">
+                         <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                         <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                         <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                         <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                     </div>
+                 </div>
+                 <div class="footer-links">
+                     <h4>Quick Links</h4>
+                     <ul>
+                          <li><a href="index.html#features"><i class="fas fa-chevron-right"></i>Features</a></li>
+                          <li><a href="index.html#usp"><i class="fas fa-chevron-right"></i>Why ZenZ</a></li>
+                          <li><a href="index.html#about"><i class="fas fa-chevron-right"></i>About Us</a></li>
+                          <li><a href="index.html#download"><i class="fas fa-chevron-right"></i>Download</a></li>
+                     </ul>
+                 </div>
+                 <div class="footer-links">
+                     <h4>Resources</h4>
+                     <ul>
+                         <li><a href="#"><i class="fas fa-book-open"></i>Blog</a></li>
+                         <li><a href="#"><i class="fas fa-question-circle"></i>FAQ</a></li>
+                         <li><a href="#"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                         <li><a href="#"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
+                     </ul>
+                 </div>
+                  <div class="footer-links">
+                     <h4>Contact</h4>
+                     <ul>
+                         <li><a href="mailto:support@zenz.app"><i class="fas fa-envelope"></i>support@zenz.app</a></li>
+                         <li><a href="#"><i class="fas fa-map-marker-alt"></i>123 Wellness St, Balance City</a></li>
+                     </ul>
+                 </div>
+              </div>
+              <div class="copyright">
+                  © 2024 ZenZ Wellness. All rights reserved.
+              </div>
+          </div>
+      </footer>
+
+     <!-- Mobile Menu Script -->
+     <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if(icon) {
+                    if (navLinks.classList.contains('active')) {
+                        icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+                        menuToggle.setAttribute('aria-label', 'Close navigation menu');
+                    } else {
+                        icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+                        menuToggle.setAttribute('aria-label', 'Open navigation menu');
+                    }
+                }
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        const icon = menuToggle.querySelector('i');
+                         if (icon) { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+                         menuToggle.setAttribute('aria-label', 'Open navigation menu');
+                    }
+                });
+            });
+        }
+    </script>
+
+    <!-- Dashboard Logic Script (Pomodoro Removed) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Element References ---
+            const welcomeMessage = document.getElementById('welcome-message');
+            const quoteTextElement = document.getElementById('quote-text');
+            const quoteAuthorElement = document.getElementById('quote-author');
+            const quoteDisplayArea = document.getElementById('quote-display-area');
+            const journalEntry = document.getElementById('journal-entry');
+            const saveJournalButton = document.getElementById('save-journal');
+            const startSessionBtn = document.getElementById('start-session-btn');
+            const stopSessionBtn = document.getElementById('stop-session-btn');
+            const sessionTimerDisplay = document.getElementById('session-timer-display');
+            const sessionList = document.getElementById('session-list');
+            const newGoalInput = document.getElementById('new-goal-input');
+            const addGoalButton = document.getElementById('add-goal-button');
+            const goalList = document.getElementById('goal-list');
+            // Pomodoro Elements Removed
+
+            // --- Variables & Data ---
+            let userName = 'there';
+            let goals = [];
+            let sessions = []; // Use sessionStorage
+            let currentQuoteIndex = 0;
+            const customQuotes = [
+                { text: "Almost everything will work again if you unplug it for a few minutes, including you.", author: "Anne Lamott" },
+                { text: "The time you enjoy wasting is not wasted time.", author: "Marthe Troly-Curtin" },
+                { text: "Technology is a useful servant but a dangerous master.", author: "Christian Lous Lange" },
+                { text: "Your calm mind is the ultimate weapon against your challenges.", author: "Bryant McGill" },
+                { text: "Don't let yesterday take up too much of today.", author: "Will Rogers" }
+            ];
+            let sessionStartTime = null;
+            let sessionIntervalId = null;
+            // Pomodoro State Variables Removed
+
+
+            // --- Initialization ---
+            loadUserData();
+            loadGoals();
+            loadSessions();
+            displayQuote(currentQuoteIndex);
+            renderGoals();
+            renderSessions();
+            // Pomodoro Initialization Removed
+
+
+            // --- General Functions ---
+            function formatTime(totalSeconds) {
+                const hours = Math.floor(totalSeconds / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+                return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+            function formatDuration(seconds) {
+                 if (seconds < 60) return `${seconds} sec`;
+                if (seconds < 3600) return `${Math.round(seconds / 60)} min`;
+                const hours = Math.floor(seconds / 3600);
+                const minutes = Math.round((seconds % 3600) / 60);
+                return `${hours}h ${minutes}m`;
+            }
+            // formatPomodoroTime removed
+
+
+            // --- User Data Functions ---
+            function loadUserData() {
+                 try {
+                    const storedData = localStorage.getItem('zenzUserData');
+                    if (storedData) {
+                        const userData = JSON.parse(storedData);
+                        userName = userData.name || 'there';
+                        if (!userData.onboarded) console.warn("User data found but onboarding flag not set.");
+                    } else { console.warn("No user data found in localStorage."); }
+                } catch (e) { console.error('Error reading user data from localStorage:', e); }
+                if (welcomeMessage) welcomeMessage.textContent = `Welcome, ${userName}!`;
+            }
+
+
+            // --- Quote Functions ---
+            function displayQuote(index) {
+                 if (!quoteTextElement || !quoteAuthorElement) return;
+                if (customQuotes.length > 0 && index >= 0 && index < customQuotes.length) {
+                    quoteTextElement.textContent = `"${customQuotes[index].text}"`;
+                    quoteAuthorElement.textContent = `- ${customQuotes[index].author || 'Unknown'}`;
+                } else {
+                    quoteTextElement.textContent = '"Be present in all things and thankful for all things."';
+                    quoteAuthorElement.textContent = '- Maya Angelou';
+                }
+            }
+
+
+            // --- Session Timer Functions (Using SessionStorage) ---
+            function loadSessions() {
+                 try {
+                    const storedSessions = sessionStorage.getItem('zenzSessions');
+                    if (storedSessions) {
+                        sessions = JSON.parse(storedSessions).map(s => ({ startTime: new Date(s.startTime), endTime: new Date(s.endTime), duration: s.duration }));
+                    } else { sessions = []; }
+                } catch (e) { console.error('Error reading sessions from sessionStorage:', e); sessions = []; }
+            }
+            function saveSessions() {
+                 try {
+                    const sessionsToStore = sessions.map(s => ({ startTime: s.startTime.toISOString(), endTime: s.endTime.toISOString(), duration: s.duration }));
+                    sessionStorage.setItem('zenzSessions', JSON.stringify(sessionsToStore));
+                } catch (e) { console.error('Error saving sessions to sessionStorage:', e); }
+            }
+            function startSession() {
+                 if (sessionIntervalId) return;
+                sessionStartTime = new Date();
+                if (startSessionBtn) startSessionBtn.style.display = 'none';
+                if (stopSessionBtn) stopSessionBtn.style.display = 'inline-block';
+                if (sessionTimerDisplay) sessionTimerDisplay.textContent = formatTime(0);
+                sessionIntervalId = setInterval(() => {
+                    const now = new Date();
+                    const elapsedSeconds = Math.round((now - sessionStartTime) / 1000);
+                    if (sessionTimerDisplay) sessionTimerDisplay.textContent = formatTime(elapsedSeconds);
+                }, 1000);
+            }
+            function stopSession() {
+                 if (!sessionIntervalId) return;
+                clearInterval(sessionIntervalId);
+                sessionIntervalId = null;
+                const sessionEndTime = new Date();
+                const durationSeconds = Math.round((sessionEndTime - sessionStartTime) / 1000);
+                sessions.unshift({ startTime: sessionStartTime, endTime: sessionEndTime, duration: durationSeconds });
+                saveSessions();
+                renderSessions();
+                if (sessionTimerDisplay) sessionTimerDisplay.textContent = '00:00:00';
+                sessionStartTime = null;
+                if (startSessionBtn) startSessionBtn.style.display = 'inline-block';
+                if (stopSessionBtn) stopSessionBtn.style.display = 'none';
+            }
+            function renderSessions() {
+                 if (!sessionList) return;
+                sessionList.innerHTML = '';
+                const sessionsToDisplay = sessions.slice(0, 10);
+                if (sessionsToDisplay.length === 0) {
+                    sessionList.innerHTML = '<li style="opacity: 0.6;">No sessions logged this visit.</li>';
+                    return;
+                }
+                sessionsToDisplay.forEach(session => {
+                    const li = document.createElement('li');
+                    const startTimeStr = session.startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                    const dateStr = session.startTime.toLocaleDateString([], {month: 'short', day: 'numeric'});
+                    li.innerHTML = `<span>${dateStr} ${startTimeStr}</span><span class="session-duration">${formatDuration(session.duration)}</span>`;
+                    sessionList.appendChild(li);
+                });
+            }
+
+
+            // --- Goal Functions (Using LocalStorage for persistence) ---
+            function loadGoals() {
+                try {
+                    const storedGoals = localStorage.getItem('zenzGoals');
+                    if (storedGoals) { goals = JSON.parse(storedGoals); }
+                } catch (e) { console.error('Error reading goals from localStorage:', e); goals = []; }
+            }
+            function saveGoals() {
+                try { localStorage.setItem('zenzGoals', JSON.stringify(goals)); }
+                catch (e) { console.error('Error saving goals to localStorage:', e); }
+            }
+            function renderGoals() {
+                 if (!goalList) return;
+                goalList.innerHTML = '';
+                goals.forEach((goal, index) => {
+                    const li = document.createElement('li');
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox'; checkbox.checked = goal.done;
+                    checkbox.dataset.index = index;
+                    checkbox.addEventListener('change', (e) => toggleGoalDone(parseInt(e.target.dataset.index)));
+                    const span = document.createElement('span');
+                    span.textContent = goal.text; span.className = 'goal-text';
+                    if (goal.done) { span.classList.add('done'); }
+                    const deleteButton = document.createElement('button');
+                    deleteButton.innerHTML = '<i class="fas fa-times"></i>';
+                    deleteButton.className = 'delete-goal-button'; deleteButton.title = 'Delete Goal';
+                    deleteButton.dataset.index = index;
+                    deleteButton.addEventListener('click', (e) => {
+                        const button = e.target.closest('button');
+                        if (button && button.dataset.index !== undefined) { deleteGoal(parseInt(button.dataset.index)); }
+                    });
+                    li.appendChild(checkbox); li.appendChild(span); li.appendChild(deleteButton);
+                    goalList.appendChild(li);
+                });
+            }
+            function addGoal() {
+                 if (!newGoalInput) return;
+                const text = newGoalInput.value.trim();
+                if (text) {
+                    goals.push({ text: text, done: false, id: Date.now() });
+                    newGoalInput.value = ''; saveGoals(); renderGoals();
+                }
+            }
+            function toggleGoalDone(index) {
+                 if (index >= 0 && index < goals.length) { goals[index].done = !goals[index].done; saveGoals(); renderGoals(); }
+            }
+            function deleteGoal(index) {
+                 if (index >= 0 && index < goals.length) { goals.splice(index, 1); saveGoals(); renderGoals(); }
+            }
+
+            // --- Pomodoro Timer Functions Removed ---
+
+
+            // --- Event Listeners ---
+            if (quoteDisplayArea) {
+                quoteDisplayArea.addEventListener('click', () => {
+                    currentQuoteIndex = (currentQuoteIndex + 1) % customQuotes.length;
+                    displayQuote(currentQuoteIndex);
+                });
+            }
+            if (saveJournalButton && journalEntry) { // Journal entry also uses sessionStorage
+                 const savedJournal = sessionStorage.getItem('zenzJournalEntry');
+                if (savedJournal) journalEntry.value = savedJournal;
+                saveJournalButton.addEventListener('click', () => {
+                    try { sessionStorage.setItem('zenzJournalEntry', journalEntry.value); alert('Journal entry saved for this session!'); }
+                    catch (e) { console.error('Error saving journal entry:', e); alert('Could not save journal entry.'); }
+                });
+            }
+            if (addGoalButton) addGoalButton.addEventListener('click', addGoal);
+            if (newGoalInput) newGoalInput.addEventListener('keypress', e => { if(e.key === 'Enter') { e.preventDefault(); addGoal();} });
+            if (startSessionBtn) startSessionBtn.addEventListener('click', startSession);
+            if (stopSessionBtn) stopSessionBtn.addEventListener('click', stopSession);
+            // Pomodoro Listeners Removed
+
+        });
+    </script>
+
+</body>
+</html>

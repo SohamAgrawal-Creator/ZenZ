@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenZ - Get Started</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Link the updated style.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+         <div class="container">
+             <nav>
+                 <div class="logo">Zen<span>Z</span></div>
+                 <button class="menu-toggle" id="mobile-menu" aria-label="Open navigation menu">
+                     <i class="fas fa-bars"></i>
+                 </button>
+                 <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#stats">Stats</a></li>
+                    <li><a href="index.html#usp">Why ZenZ</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li class="cta-button-wrapper"><a href="index.html#download" class="cta-button">Download App</a></li>
+                 </ul>
+             </nav>
+         </div>
+     </header>
+
+    <main>
+        <section class="onboarding-section">
+            <div class="onboarding-form-container">
+                <h2>Tell Us a Bit About You</h2>
+                <form id="onboarding-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" required placeholder="Enter your age" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="usage-hours">On average, how many hours per day do you estimate you spend on your phone/computer for non-work/school tasks?</label>
+                        <input type="number" id="usage-hours" name="usageHours" required placeholder="e.g., 4" min="0" step="0.5">
+                    </div>
+                    <div class="form-group">
+                        <label for="usage-feeling">How do you generally feel about your current tech usage?</label>
+                        <textarea id="usage-feeling" name="usageFeeling" rows="3" required placeholder="e.g., A bit too much, okay, wish I used it less..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Continue to Dashboard</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+               <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill" style="fill: var(--gradient-bg);"></path>
+            </svg>
+         </div>
+         <div class="container">
+             <div class="footer-content">
+                  <div class="footer-about">
+                    <div class="footer-logo">Zen<span>Z</span></div>
+                    <p>Helping you navigate the digital world with mindfulness and intention. Find your balance with ZenZ.</p>
+                     <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                         <li><a href="index.html#features"><i class="fas fa-chevron-right"></i>Features</a></li>
+                         <li><a href="index.html#usp"><i class="fas fa-chevron-right"></i>Why ZenZ</a></li>
+                         <li><a href="index.html#about"><i class="fas fa-chevron-right"></i>About Us</a></li>
+                         <li><a href="index.html#download"><i class="fas fa-chevron-right"></i>Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-book-open"></i>Blog</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i>FAQ</a></li>
+                        <li><a href="#"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:support@zenz.app"><i class="fas fa-envelope"></i>support@zenz.app</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i>123 Wellness St, Balance City</a></li>
+                    </ul>
+                </div>
+             </div>
+             <div class="copyright">
+                 © 2024 ZenZ Wellness. All rights reserved.
+             </div>
+         </div>
+     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if(icon) {
+                    if (navLinks.classList.contains('active')) {
+                        icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+                        menuToggle.setAttribute('aria-label', 'Close navigation menu');
+                    } else {
+                        icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+                        menuToggle.setAttribute('aria-label', 'Open navigation menu');
+                    }
+                }
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        const icon = menuToggle.querySelector('i');
+                        if (icon) { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+                        menuToggle.setAttribute('aria-label', 'Open navigation menu');
+                    }
+                });
+            });
+        }
+    </script>
+
+    <!-- Form Handling Script -->
+    <script>
+        const onboardingForm = document.getElementById('onboarding-form');
+        if (onboardingForm) {
+            onboardingForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const userData = {
+                    name: document.getElementById('name').value,
+                    age: document.getElementById('age').value,
+                    usageHours: document.getElementById('usage-hours').value,
+                    usageFeeling: document.getElementById('usage-feeling').value,
+                    onboarded: true
+                };
+                try {
+                    localStorage.setItem('zenzUserData', JSON.stringify(userData));
+                    sessionStorage.removeItem('zenzSessions'); // Clear session data on new onboard
+                    sessionStorage.removeItem('zenzJournalEntry');
+                    console.log('User data saved to localStorage:', userData);
+                    window.location.href = 'dashboard.html';
+                } catch (e) {
+                    console.error('Error saving to localStorage:', e);
+                    alert('Could not save your information. Please ensure localStorage is enabled and not full.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
